@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مؤمن كود</title>
+    <link rel="preload" href="out.css" as="style">
+    <link rel="stylesheet" href="out.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="icon" type="image/png" href="ico.png">
+    
+    
+    <style type="text/css">@font-face {font-family:Baloo Bhaijaan 2;font-style:normal;font-weight:400 800;src:url(/cf-fonts/v/baloo-bhaijaan-2/5.0.18/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Baloo Bhaijaan 2;font-style:normal;font-weight:400 800;src:url(/cf-fonts/v/baloo-bhaijaan-2/5.0.18/arabic/wght/normal.woff2);unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC;font-display:swap;}@font-face {font-family:Baloo Bhaijaan 2;font-style:normal;font-weight:400 800;src:url(/cf-fonts/v/baloo-bhaijaan-2/5.0.18/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Baloo Bhaijaan 2;font-style:normal;font-weight:400 800;src:url(/cf-fonts/v/baloo-bhaijaan-2/5.0.18/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}</style>
+    <head>
+      <!-- Import the font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Apply the font to the desired elements */
+    h3, h2, h1, a, p, button, div {
+      font-family: 'Aref Ruqaa', sans-serif;;
+    }
+  </style>
+    </head>
+    <body>
+      <div class="intro">
+        <h1 class="logo-header">
+          <span class="logo">.كود</span><span class="logo">مؤمن </span>
+        </h1>
+      </div>
+      
+      <style i18next-orgval-0="
+            @keyframes wiggle {
+              0% {
+                transform: rotate(-3deg);
+              }
+              100% {
+                transform: rotate(3deg);
+              }
+            }
+          " localized="">
+        @keyframes wiggle {
+          0% {
+            transform: rotate(-3deg);
+          }
+          100% {
+            transform: rotate(3deg);
+          }
+        }
+      </style>
+    </body>
+    <script>
+      // عند تحميل الصفحة
+      document.addEventListener("DOMContentLoaded", () => {
+        const modeIcon = document.getElementById("modeIcon");
+        const savedMode = localStorage.getItem("theme"); // قراءة الوضع المخزن
+
+        // تعيين الوضع الداكن أو الفاتح بناءً على المخزن
+        if (savedMode === "dark") {
+          document.documentElement.classList.add("dark");
+          if (modeIcon) modeIcon.src = "sun.png";
+        } else if (savedMode === "light") {
+          document.documentElement.classList.remove("dark");
+          if (modeIcon) modeIcon.src = "moon.png";
+        } else {
+          // إذا لم تكن هناك قيمة، افتراضياً الوضع داكن
+          document.documentElement.classList.add("dark");
+          if (modeIcon) modeIcon.src = "sun.png";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // التبديل بين الوضعين وحفظ التفضيلات
+      function toggleDarkMode() {
+        const htmlElement = document.documentElement;
+        const modeIcon = document.getElementById("modeIcon");
+
+        if (htmlElement.classList.contains("dark")) {
+          htmlElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+          if (modeIcon) modeIcon.src = "moon.png";
+        } else {
+          htmlElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+          if (modeIcon) modeIcon.src = "sun.png";
+        }
+        location.reload();
+      }
+
+      // عند تحميل الصفحة
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const langFromURL = urlParams.get("lng");
+
+
+        
+
+        // تحديث اتجاه النص بناءً على اللغة
+          //document.documentElement.setAttribute("dir", "rtl"); // من اليمين لليسار
+        //} else {
+          //document.documentElement.setAttribute("dir", "ltr"); // من اليسار لليمين
+        //}
+        setTimeout(() => {
+          document.documentElement.setAttribute("dir", "rtl"); // من اليمين لليسار
+        }, 2500);
+
+        // تحديث نص الزر بناءً على اللغة
+        const button = document.getElementById("langButton");
+        if (button) {
+          button.textContent = currentLang === "en" ? "Ar" : "En";
+        }
+      });
+    </script>
+
+    <script src="./SOP Website_files/i18nextify.min.js.download" id="i18nextify" fallbacklng="en"></script>
+  </head>
+  <body class="transition duration-300 text-light-text bg-light-bg dark:bg-dark-bg dark:text-dark-text font-baloo">
+    <header class="fixed z-50 w-full" i18next-orgval-1="
+      " i18next-orgval-3="
+    " localized="">
+<div class="container px-6 py-4 mx-auto mt-4" i18next-orgval-1="
+        " i18next-orgval-3="
+      " localized="">
+<nav class="px-8 py-4 transition-all duration-300 bg-light-bg rounded-full shadow-lg backdrop-blur-lg shadow-[#3DA35D]/20 hover:shadow-xl dark:bg-dark-bg dark:shadow-dark-text/40" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+<div class="flex items-center justify-between rtl:space-x-reverse" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+            " i18next-orgval-7="
+            " i18next-orgval-9="
+          " localized="">
+<h1 class="text-2xl font-bold text-transparent bg-gradient-to-r from-black via-light-text to-black bg-clip-text hover:scale-110 dark:from-dark-accent dark:via-white dark:to-dark-accent" i18next-orgval-0="
+              سوب
+            " localized="">
+مؤمن
+</h1>
+
+<ul class="hidden space-x-8 md:flex rtl:space-x-reverse" i18next-orgval-1="
+              " i18next-orgval-3="
+              " i18next-orgval-5="
+              " i18next-orgval-7="
+              " i18next-orgval-9="
+            " localized="">
+<li i18next-orgval-1="
+                " i18next-orgval-3="
+              " localized="">
+<a  id="sharta"  href="code1.html" class="hover:text-[#3DA35D] dark:hover:text-dark-accent font-bold" i18next-orgval-0="الرئيسية" localized="">الرئيسية</a>
+</li>
+<li i18next-orgval-1="
+                " i18next-orgval-3="
+              " localized="">
+<a  id="sharta" href="code1.html#course" class="hover:text-[#3DA35D] dark:hover:text-dark-accent font-bold" i18next-orgval-0="دوراتي" localized="">دورتي</a>
+</li>
+<li i18next-orgval-1="
+                " i18next-orgval-3="
+              " localized="">
+<a  id="sharta" href="code1.html#contact" class="hover:text-[#3DA35D] dark:hover:text-dark-accent font-bold" i18next-orgval-0="تواصل" localized="">تواصل</a>
+</li>
+<li i18next-orgval-1="
+                " i18next-orgval-3="
+              " localized="">
+<a  id="sharta" href="code1.html#projects" class="hover:text-[#3DA35D] dark:hover:text-dark-accent font-bold" i18next-orgval-0="مشاريعي" localized="">مشاريعي</a>
+</li>
+</ul>
+<!-- Dark Mode and Language Toggle Buttons -->
+<div class="flex items-center space-x-4 rtl:space-x-reverse" i18next-orgval-1="
+              " i18next-orgval-3="
+              " i18next-orgval-5="
+            " localized="">
+<button onclick="toggleDarkMode()" class="p-2 rounded-full" i18next-orgval-1="
+                " i18next-orgval-3="
+              " localized="">
+<img id="modeIcon" src="sun.png" alt="Toggle Mode" class="w-8 h-8" alt-i18next-orgval="Toggle Mode" localized="">
+</button>
+<button 
+    onclick="window.location.href='index.html'"
+    id="langButton" 
+    class="px-4 py-2 text-sm font-bold text-light-text dark:text-dark-text rounded-full border-4 border-dashed border-light-text dark:border-[#3cf8ff]">
+    English
+  </button>
+</div>
+</div>
+</nav>
+</div>
+</header>
+
+    <!-- Hero Section -->
+    <section id="home" class="flex items-center justify-center w-full h-screen p-6 pt-60 bg-light-bg dark:bg-dark-bg" i18next-orgval-1="
+      " i18next-orgval-3="
+    " localized="">
+<div class="flex flex-col items-center justify-center w-full max-w-6xl gap-8 mx-auto md:flex-row md:items-center" i18next-orgval-1="
+        " i18next-orgval-3="
+        " i18next-orgval-5="
+
+        " i18next-orgval-7="
+        " i18next-orgval-9="
+        " i18next-orgval-11="
+        " i18next-orgval-13="
+      " localized="">
+<!-- Text Section --> 
+<div class="text-center md:text-left md:rtl:text-right font" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+          " i18next-orgval-7="
+        " localized="">
+<h1 id="h">
+  <span id="hello">مـ</span>
+  <span id="hello">ر</span>
+  <span id="hello">حــ</span>
+  <span id="hello">ــبــ</span>
+  <span id="hello">ـا</span>
+</h1>
+
+<h2 class="mb-4 text-3xl lg:text-4xl" i18next-orgval-0="اسمي هو" localized="">اسمي هو</h2>
+<h1 id="mimo" class="mb-6 text-4xl md:text-5xl lg:text-6xl text-light-text dark:text-dark-primary" i18next-orgval-0="
+          مؤمن
+        " localized="">
+  مؤمن
+</h1>
+<p class="flex flex-col text-base lg:text-2xl whitespace-nowrap text-light-secondary dark:text-dark-text" data-i18n="about" i18next-orgval-0="
+            مطور العاب | مبرمج | مصمم واجهات مستخدم
+          " localized="">
+مطور العاب | مبرمج | مصمم واجهات مستخدم
+</p>
+</div>
+
+<!-- Image Section (Hidden on small screens) -->
+<div class="justify-center flex-shrink-0 hidden md:flex rtl:-scale-x-100" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+<img id="animated-node" src="mimo.png" data-name="صورة مؤمن تفاعلية" class="max-w-[20rem] lg:max-w-[32rem] h-auto animate-jump" width="1063" height="1003" alt="Moumen Character" alt-i18next-orgval="Moumen Character" localized="">
+</div>
+<!-- Extra Image for Small Screens -->
+<div class="flex justify-center mt-6 md:hidden" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+        <img id="animated-node" src="thumb.png" data-name="شخصية مؤمن تفاعلية" class="max-w-[15rem] h-auto animate-jump" width="1130" height="1910" alt="شخصية مؤمن تفاعلية" alt-i18next-orgval="شخصية مؤمن تفاعلية" localized="">
+</div>
+</div>
+</section>
+
+    <section id="course" class="relative px-6 mx-auto my-64 max-w-screen-mdxl lg:max-w-screen-2xl scroll-mt-80" i18next-orgval-1="
+      " i18next-orgval-3="
+      " i18next-orgval-5="
+
+      " i18next-orgval-7="
+      " i18next-orgval-9="
+    " localized="">
+<div class="container mx-auto mb-20 text-center" i18next-orgval-1="
+        " i18next-orgval-3="
+      " localized="">
+<h2 class="text-4xl font-bold lg:text-6xl text-light-text dark:text-dark-text" i18next-orgval-0="
+          دورتي
+        " localized="">
+دورتي
+</h2>
+</div>
+<div class="flex justify-center" i18next-orgval-1="
+        " i18next-orgval-3="
+      " localized="">
+<div class="relative flex-1 p-6 transition-transform border-4 border-dashed group border-light-primary dark:border-dark-primary rounded-3xl hover:scale-105 hover:translate-y-0 md:p-20" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+          " i18next-orgval-7="
+        " localized="">
+<!-- Background Overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-light-primary/60 to-light-bg/60 dark:from-dark-primary/60 rounded-3xl" localized=""></div>
+<div class="relative z-10 flex flex-col items-center gap-8 md:flex-row md:gap-12" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+
+            " i18next-orgval-7="
+            " i18next-orgval-9="
+          " localized="">
+<!-- Video -->
+<div class="relative flex-shrink-0 md:w-1/2" i18next-orgval-1="
+              " i18next-orgval-3="
+              " i18next-orgval-5="
+              " i18next-orgval-7="
+            " localized="">
+<video autoplay="" loop="" muted="" class="object-cover w-full max-w-[18rem] md:max-w-full rounded-2xl" i18next-orgval-1="
+                " i18next-orgval-3="
+                المتصفح الخاص بك لا يدعم الفيديو تاجس
+              " localized="">
+<source src="tutvid.mp4" type="video/mp4" localized="">
+المتصفح الخاص بك لا يدعم الفيديو تاجس
+</video>
+<!-- Discount Badge -->
+<div class="absolute w-full py-2 text-sm font-bold text-center text-white bg-red-600 -bottom-5 rounded-b-2xl" i18next-orgval-0="
+                جودوت للمبتدئين
+              " localized="">
+جودوت للمبتدئين
+</div>
+</div>
+
+<!-- Course Info -->
+<div class="w-full text-center md:w-1/2" i18next-orgval-1="
+              " i18next-orgval-3="
+              " i18next-orgval-5="
+              " i18next-orgval-7="
+            " localized="">
+<h3 class="mb-4 text-2xl font-bold dark:text-dark-text md:text-3xl" i18next-orgval-1="
+                تعلم صناعة الاعاب
+                " i18next-orgval-3="
+              " localized="">
+تعلم صناعة الألعاب
+<span class="whitespace-nowrap" i18next-orgval-0="٢دي" localized="">٢دي</span>
+</h3>
+<p class="mb-6 text-base font-bold leading-relaxed text-light-secondary dark:text-dark-accent md:text-lg" i18next-orgval-1="
+                تعلم صناعة الالعاب ٢دي باستخدام
+                " i18next-orgval-3="
+                باللغة العربية
+              " localized="">
+تعلم صناعة الالعاب ٢دي باستخدام
+<span class="font-extrabold text-light-text dark:text-dark-text" i18next-orgval-0="جودوت" localized="">جودوت</span>
+باللغة العربية
+</p>
+<a href="https://www.udemy.com/course/create-a-full-2d-platformer-game-in-godot-4-in-arabic/?couponCode=SOPDEV7" class="inline-flex items-center px-6 py-3 text-sm font-bold text-white bg-green-600 rounded-full dark:bg-dark-primary md:px-10 md:py-5 md:text-lg hover:bg-green-700 hover:animate-wiggle dark:hover:text-dark-text" target="_blank" style="animation: wiggle 1s infinite alternate ease-in-out" i18next-orgval-0="
+                اشترك في الدورة
+              " localized="">
+اشترك في الدورة
+</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Keyframes for Wiggle -->
+<style i18next-orgval-0="
+        @keyframes wiggle {
+          0% {
+            transform: rotate(-3deg);
+          }
+          100% {
+            transform: rotate(3deg);
+          }
+        }
+      " localized="">
+@keyframes wiggle {
+0% {
+transform: rotate(-3deg);
+}
+100% {
+transform: rotate(3deg);
+}
+}
+</style>
+</section>
+
+    <section id="contact" class="relative px-6 mx-auto my-44 max-w-7xl scroll-mt-80" i18next-orgval-1="
+      " i18next-orgval-3="
+      " i18next-orgval-5="
+      " i18next-orgval-7="
+      " i18next-orgval-9="
+    " localized="">
+<div class="container mx-auto mb-16 text-center" i18next-orgval-1="
+        " i18next-orgval-3="
+      " localized="">
+<h2 class="text-4xl lg:text-6xl font-bold text-[#3DA35D] dark:dark:text-dark-text" i18next-orgval-0="
+          حسابات التواصل
+        " localized="">
+حسابات التواصل
+</h2>
+</div>
+<div class="flex flex-col justify-between lg:gap-16 lg:flex-row gap-9" dir="ltr" i18next-orgval-1="
+        " i18next-orgval-3="
+        " i18next-orgval-5="
+
+        " i18next-orgval-7="
+        " i18next-orgval-9="
+      " localized="">
+<!-- القناة الثانية -->
+<div class="relative group flex-1 border-4 border-dashed border-[#fe8400] dark:border-[#fe8400] rounded-3xl transition-transform hover:scale-105 grid place-content-center py-10" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+
+          " i18next-orgval-7="
+          " i18next-orgval-9="
+        " localized="">
+<!-- الدائرة الرئيسية -->
+<div class="w-[250px] h-[250px] bg-orange-500 rounded-full transition-transform lg:group-hover:scale-110 lg:ml-auto duration-300 ease-in-out mx-auto lg:group-hover:translate-x-20 mb-20" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+            " i18next-orgval-7="
+          " localized="">
+<a href="https://web.facebook.com/moumen.mahmoud.5815?locale=ar_AR" target="_blank" aria-label="link for Sop second channel" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="face.jpg"  data-name="مؤمن علي فيسبوك" alt="مؤمن على فيسبوك" class="object-cover w-full h-full mb-2 rounded-full" loading="lazy" alt-i18next-orgval="مؤمن على فاسبوك" localized="">
+</a>
+<h2 class="flex items-center justify-center ml-auto text-5xl font-bold text-[#3DA35D] dark:dark:text-dark-text mb-2" i18next-orgval-0="
+              مؤمن
+            " localized="">
+مؤمن
+</h2>
+<h1 class="opacity-100 lg:opacity-0 flex items-center justify-center ml-auto text-1xl font-bold text-[#3DA35D] dark:dark:text-dark-text lg:group-hover:opacity-100 duration-300" i18next-orgval-0="
+              كل شئ عن البرمجة
+            " localized="">
+كل شئ عن البرمجة
+</h1>
+</div>
+
+<!-- المقاطع مع الأنميشن (لشاشات كبيرة فقط) -->
+<div class="absolute top-1/2 right-[70%] -translate-y-1/2 flex-col items-center gap-6 opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 hidden lg:flex" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+            " i18next-orgval-7="
+          " localized="">
+<a href="https://www.youtube.com/watch?v=TOgC7GYA5bE&amp;" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about how to learn programming" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="./SOP Website_files/howToLearnProgramming.webp" alt="The thumbnail for a video about how to learn programming" class="object-contain transition-transform transform rounded-lg rotate-6 hover:scale-110 border-4 border-separate border-[#fe8400] dark:border-[#fe8400]" loading="lazy" alt-i18next-orgval="The thumbnail for a video about how to learn programming" localized="">
+</a>
+<a href="https://www.youtube.com/watch?v=xEFuksWpDTs" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about how to make money from programming" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="./SOP Website_files/programmingMoney.webp" alt="The thumbnail for a video about how to make money from programming" class="object-contain transition-transform transform rotate-0 rounded-lg hover:scale-110 border-4 border-separate border-[#fe8400] dark:border-[#fe8400]" loading="lazy" alt-i18next-orgval="The thumbnail for a video about how to make money from programming" localized="">
+</a>
+<a href="https://www.youtube.com/watch?v=CMWKOE1uqSI" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about making a website" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="./SOP Website_files/websiteMake.webp" alt="The thumbnail for a video about making a website" class="object-contain transition-transform transform rounded-lg -rotate-3 hover:scale-110 border-4 border-separate border-[#fe8400] dark:border-[#fe8400]" loading="lazy" alt-i18next-orgval="The thumbnail for a video about making a website" localized="">
+</a>
+</div>
+</div>
+
+<!-- القناة الأولى -->
+<div class="relative group flex-1 border-4 border-dashed border-[#22898d] dark:border-[#3cf8ff] rounded-3xl transition-transform hover:scale-105 grid place-content-center py-10" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+
+          " i18next-orgval-7="
+          " i18next-orgval-9="
+        " localized="">
+<!-- الدائرة الرئيسية -->
+<div class="w-[250px] h-[250px] bg-cyan-500 rounded-full transition-transform lg:group-hover:scale-110 duration-300 ease-in-out mx-auto lg:group-hover:-translate-x-20 mb-20 ml-auto" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+            " i18next-orgval-7="
+          " localized="">
+<a href="https://github.com/Mimo233329" target="_blank" aria-label="Link for Moumen on instagram" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="insta.jpeg" data-name="مؤمن على جيت هاب" alt="مؤمن على جيت هاب" class="object-cover w-full h-full mb-2 rounded-full" loading="lazy" alt-i18next-orgval="مؤمن على جيت هاب" localized="">
+</a>
+<h2 class="flex items-center justify-center ml-auto text-5xl font-bold text-[#3DA35D] dark:dark:text-dark-text mb-3" i18next-orgval-0="
+              مؤمن
+            " localized="">
+مؤمن
+</h2>
+<h1 class="opacity-100 lg:opacity-0 flex items-center justify-center ml-auto text-1xl font-bold text-[#3DA35D] dark:dark:text-dark-text lg:group-hover:opacity-100 duration-300" i18next-orgval-0="
+              كل شئ عن تطوير الألعاب
+            " localized="">
+كل شئ عن تطوير الألعاب
+</h1>
+</div>
+
+<!-- المقاطع مع الأنميشن (لشاشات كبيرة فقط) -->
+<div class="absolute top-1/2 left-[70%] -translate-y-1/2 flex-col items-center gap-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden lg:flex" i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+            " i18next-orgval-7="
+          " localized="">
+<a href="https://github.com/Mimo233329/My-salah" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about how to make your first 2D game" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="salat.png" alt="salat demo code" class="object-contain transition-transform transform rounded-lg -rotate-6 hover:scale-110 border-4 border-separate border-[#22898d] dark:border-[#3cf8ff]" loading="lazy" alt-i18next-orgval="salat demo code" localized="">
+</a>
+<a href="https://github.com/Mimo233329/Mimo233329" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about how to make your first 2D game" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="readme.png" alt="about me on github" class="object-contain transition-transform transform rotate-0 rounded-lg hover:scale-110 border-4 border-separate border-[#22898d] dark:border-[#3cf8ff]" loading="lazy" alt-i18next-orgval="about me on github" localized="">
+</a>
+<a href="https://github.com/Mimo233329/Mimo-Weather" target="_blank" class="w-[200px] h-[130px] overflow-visible" aria-label="a video about a challenge between SOP and his little brother." i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<img src="weather.png" alt="weather demo code" class="object-contain transition-transform transform rounded-lg rotate-3 hover:scale-110 border-4 border-separate border-[#22898d] dark:border-[#3cf8ff]" loading="lazy" alt-i18next-orgval="weather demo code" localized="">
+</a>
+</div>
+</div>
+</div>
+<div i18next-orgval-1="
+        " i18next-orgval-3="
+      " localized="">
+<h2 class="w-full mt-10 text-4xl font-bold text-center text-light-text lg:w-auto lg:text-6xl dark:text-dark-text" i18next-orgval-0="
+          حسابات تواصل اخرى
+        " localized="">
+حسابات تواصل اخرى
+</h2>
+</div>
+<div class="relative flex flex-row items-center justify-center gap-6 mx-auto my-12 rounded-lg lg:flex lg:flex-wrap max-w-7xl" i18next-orgval-1="
+        " i18next-orgval-3="
+        " i18next-orgval-5="
+        " i18next-orgval-7="
+        " i18next-orgval-9="
+        " i18next-orgval-11="
+      " localized="">
+<a href="https://x.com/MoumenMahmoud24" target="_blank" class="duration-300 transform hover:scale-110 hover:-rotate-6" aria-label="a link to Moumen x account" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+<div class="flex items-center justify-center w-16 h-16 overflow-hidden rounded-full bg-[#3DA35D] dark:bg-dark-primary" i18next-orgval-1="
+            " i18next-orgval-3="
+          " localized="">
+<svg width="120" height="108" viewBox="0 0 120 108" fill="none" xmlns="http://www.w3.org/2000/svg" class="object-contain w-10 h-10 transition-transform" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<path d="M94.3418 0.375H112.536L72.7873 45.805L119.548 107.625H82.9348L54.2578 70.1315L21.4448 107.625H3.23997L45.7548 59.0325L0.896973 0.375H38.4398L64.3613 34.6455L94.3418 0.375ZM87.9563 96.735H98.0378L32.9618 10.693H22.1433L87.9563 96.735Z" fill="white" localized=""></path>
+</svg>
+</div>
+</a>
+<a href="https://www.tiktok.com/@moumenmahmoud62?lang=en" target="_blank" class="duration-300 transform hover:scale-110 hover:rotate-3" aria-label="a link to SOP tiktok account" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+<div class="flex items-center justify-center w-16 h-16 overflow-hidden rounded-full bg-[#3DA35D] dark:bg-dark-primary" i18next-orgval-1="
+            " i18next-orgval-3="
+          " localized="">
+<svg width="29" height="33" viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg" class="object-contain w-10 h-10 transition-transform" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<path d="M28.8 13.95V8.27C26.14 8.27 24.11 7.56 22.8 6.18C21.4555 4.60505 20.7022 2.61055 20.67 0.54V0.13L15.3 0V23.07C15.1158 24.0766 14.6272 25.0024 13.9001 25.7224C13.1731 26.4425 12.2426 26.9222 11.2343 27.0967C10.2261 27.2712 9.1885 27.1321 8.26175 26.6982C7.335 26.2644 6.56368 25.5566 6.05192 24.6705C5.54015 23.7844 5.31259 22.7626 5.39994 21.7431C5.48729 20.7235 5.88536 19.7553 6.5404 18.9692C7.19544 18.1831 8.07592 17.6168 9.06296 17.3469C10.05 17.0771 11.0961 17.1165 12.06 17.46V11.96C11.498 11.8679 10.9295 11.8211 10.36 11.82C8.31099 11.82 6.30799 12.4276 4.6043 13.566C2.9006 14.7043 1.57274 16.3224 0.788613 18.2154C0.00448883 20.1084 -0.200674 22.1915 0.199069 24.2011C0.598812 26.2108 1.58551 28.0568 3.03438 29.5056C4.48325 30.9545 6.32922 31.9412 8.33887 32.3409C10.3485 32.7407 12.4316 32.5355 14.3246 31.7514C16.2176 30.9673 17.8357 29.6394 18.974 27.9357C20.1124 26.232 20.72 24.229 20.72 22.18C20.7189 21.7554 20.6922 21.3313 20.64 20.91V11.76C23.0818 13.2849 25.9228 14.0474 28.8 13.95Z" fill="white" localized=""></path>
+</svg>
+</div>
+</a>
+<a href="https://www.instagram.com/moamenhre/" target="_blank" class="duration-300 transform hover:scale-110 hover:-rotate-3" aria-label="a link to SOP instagram account" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+<div class="flex items-center justify-center w-16 h-16 overflow-hidden rounded-full bg-[#3DA35D] dark:bg-dark-primary" i18next-orgval-1="
+            " i18next-orgval-3="
+          " localized="">
+<svg width="154" height="154" viewBox="0 0 154 154" fill="none" xmlns="http://www.w3.org/2000/svg" class="object-contain w-10 h-10 transition-transform" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<path d="M51.3396 77C51.3396 62.8253 62.8278 51.3313 77.0031 51.3313C91.1784 51.3313 102.673 62.8253 102.673 77C102.673 91.1747 91.1784 102.669 77.0031 102.669C62.8278 102.669 51.3396 91.1747 51.3396 77ZM37.4628 77C37.4628 98.8374 55.1648 116.539 77.0031 116.539C98.8414 116.539 116.543 98.8374 116.543 77C116.543 55.1626 98.8414 37.4613 77.0031 37.4613C55.1648 37.4613 37.4628 55.1626 37.4628 77ZM108.868 35.8939C108.868 40.9941 113.004 45.1364 118.111 45.1364C123.211 45.1364 127.354 40.9941 127.354 35.8939C127.354 30.7938 123.217 26.6577 118.111 26.6577C113.004 26.6577 108.868 30.7938 108.868 35.8939ZM45.8909 139.676C38.3834 139.334 34.3031 138.084 31.5912 137.026C27.996 135.627 25.4334 133.96 22.734 131.267C20.0407 128.574 18.3675 126.011 16.9743 122.416C15.9169 119.705 14.6667 115.624 14.3246 108.117C13.9514 100 13.8767 97.5624 13.8767 77C13.8767 56.4376 13.9576 54.0057 14.3246 45.8828C14.6667 38.3756 15.9231 34.3017 16.9743 31.5837C18.3738 27.9887 20.0407 25.4262 22.734 22.7268C25.4272 20.0337 27.9898 18.3606 31.5912 16.9674C34.3031 15.91 38.3834 14.6599 45.8909 14.3178C54.0079 13.9446 56.4461 13.87 77.0031 13.87C97.5663 13.87 99.9983 13.9508 108.122 14.3178C115.629 14.6599 119.703 15.9162 122.421 16.9674C126.016 18.3606 128.579 20.0337 131.278 22.7268C133.972 25.42 135.639 27.9887 137.038 31.5837C138.096 34.2955 139.346 38.3756 139.688 45.8828C140.061 54.0057 140.136 56.4376 140.136 77C140.136 97.5561 140.061 99.9943 139.688 108.117C139.346 115.624 138.089 119.705 137.038 122.416C135.639 126.011 133.972 128.574 131.278 131.267C128.585 133.96 126.016 135.627 122.421 137.026C119.709 138.084 115.629 139.334 108.122 139.676C100.005 140.049 97.5663 140.124 77.0031 140.124C56.4461 140.124 54.0079 140.049 45.8909 139.676ZM45.2564 0.466478C37.0585 0.839661 31.4606 2.13958 26.5655 4.04281C21.5024 6.00824 17.2106 8.6454 12.9251 12.9246C8.64575 17.2037 6.00848 21.4953 4.04297 26.5644C2.13967 31.4593 0.839695 37.057 0.466497 45.2546C0.0870795 53.4646 0 56.0893 0 77C0 97.9107 0.0870795 100.535 0.466497 108.745C0.839695 116.943 2.13967 122.541 4.04297 127.436C6.00848 132.498 8.63953 136.796 12.9251 141.075C17.2044 145.355 21.4962 147.986 26.5655 149.957C31.4668 151.86 37.0585 153.16 45.2564 153.534C53.473 153.907 56.0916 154 77.0031 154C97.9208 154 100.539 153.913 108.75 153.534C116.948 153.16 122.546 151.86 127.441 149.957C132.504 147.986 136.796 145.355 141.081 141.075C145.36 136.796 147.992 132.498 149.963 127.436C151.867 122.541 153.173 116.943 153.54 108.745C153.913 100.529 154 97.9107 154 77C154 56.0893 153.913 53.4646 153.54 45.2546C153.167 37.057 151.867 31.4593 149.963 26.5644C147.992 21.5015 145.36 17.2099 141.081 12.9246C136.802 8.6454 132.504 6.00824 127.447 4.04281C122.546 2.13958 116.948 0.833441 108.756 0.466478C100.546 0.0932956 97.9208 0 77.0093 0C56.0916 0 53.473 0.0870759 45.2564 0.466478Z" fill="white" localized=""></path>
+</svg>
+</div>
+</a>
+
+<a href="https://web.facebook.com/moumen.mahmoud.5815?locale=ar_AR" target="_blank" class="duration-300 transform hover:scale-110 hover:rotate-6" aria-label="a link to SOP Facebook account" i18next-orgval-1="
+          " i18next-orgval-3="
+        " localized="">
+
+<div class="flex items-center justify-center w-16 h-16 overflow-hidden rounded-full bg-[#3DA35D] dark:bg-dark-primary" i18next-orgval-1="
+            " i18next-orgval-3="
+          " localized="">
+<svg width="11" height="20" viewBox="0 0 11 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="object-contain w-10 h-10 transition-transform" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.12 3.32003H11V0.14003C10.0898 0.045377 9.17516 -0.00135428 8.26 2.98641e-05C5.54 2.98641e-05 3.68 1.66003 3.68 4.70003V7.32003H0.610001V10.88H3.68V20H7.36V10.88H10.42L10.88 7.32003H7.36V5.05003C7.36 4.00003 7.64 3.32003 9.12 3.32003Z" fill="white" localized=""></path>
+</svg>
+</div>
+</a>
+</div>
+</section>
+
+    <section id="projects" class="py-16 bg-light-bg dark:bg-dark-bg scroll-mt-32" i18next-orgval-1="
+      " i18next-orgval-3="
+    " localized="">
+<div class="container px-6 mx-auto" i18next-orgval-1="
+        " i18next-orgval-3="
+        " i18next-orgval-5="
+
+        " i18next-orgval-7="
+        " i18next-orgval-9="
+      " localized="">
+<!-- العنوان الرئيسي -->
+<div class="mb-12 text-center" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+        " localized="">
+        <h2 class="font-bold text-[#3DA35D] whitespace-nowrap text-3xl lg:text-6xl dark:text-dark-text" i18next-orgval-0="
+            Explore My Projects
+          " localized="">
+اكتشف مشاريعي
+</h2>
+<p class="mt-5 text-2xl font-bold text-light-text dark:text-dark-primary lg:text-4xl" i18next-orgval-0="
+            العاب برامج و اشياء اخرى رائعة!
+          " localized="">
+العاب برامج و اشياء اخرى رائعة!
+</p>
+</div>
+
+<div class="space-y-16" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+
+          " i18next-orgval-7="
+          " i18next-orgval-9="
+          " i18next-orgval-11="
+        " localized="">
+<!-- قسم الألعاب -->
+<div i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+          " localized="">
+<h3 class="p-6 mb-8 text-2xl font-semibold text-center border-4 border-dashed rounded-lg border-light-accent text-light-text dark:text-dark-text dark:border-dark-accent" i18next-orgval-0="
+              الادوات التي استخدمها
+            " localized="">
+الادوات التي استخدمها
+</h3>
+
+<div class="flex">
+  <div class="game"><img src="html.svg" data-name="اتش تي ام ال" alt="html image" style="width: 110px; height: 130px;"></div>
+  <div class="game"><img src="js.png" alt="جافا سكربت" data-name="جافا سكربت" style="width: 190px; height: 190px;"></div>
+  <div class="game"><img src="css.png" alt="سي اس اس" data-name="سي اس اس" style="width: 120px; height: 180px;"></div>
+  <div class="game"><img src="python.png" alt="بايثون" data-name="بايثون" style="width: 190px; height: 190px;"></div>
+  <div class="game"><img src="godot.png" alt="جودوت" data-name="جودوت" style="width: 190px; height: 190px;"></div>
+</div>
+<div id="tooltip" style="position: absolute; display: none; background: #333; color: #fff; padding: 5px; border-radius: 5px; font-size: 14px;"></div>
+</div>
+<style>
+  .lightbox {
+            width: 190px;
+            height: 190px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s, margin 0.5s;
+        }
+  .shadow-box {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+
+        .game {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s, opacity 0.5s, margin 0.5s;
+        }
+
+        .game img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .game:hover, .selected {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+@media (max-width: 480px) {
+            .game {
+                width: 50px;
+                height: 50px;
+            }
+        }
+</style>
+<script>
+  const theme = localStorage.getItem('theme');
+
+  // Select all game elements
+  const games = document.querySelectorAll('.game');
+
+  // Apply the appropriate effect based on the theme
+  games.forEach(game => {
+    if (theme === 'dark') {
+      game.classList.add('lightbox');
+    } else {
+      game.classList.add('shadow-box');
+    }
+  });
+  const images = document.querySelectorAll('.flex img');
+const tooltip = document.getElementById('tooltip');
+
+images.forEach(img => {
+  // For PC (Mouse Events)
+  img.addEventListener('mouseover', (e) => {
+    const photoName = img.getAttribute('data-name');
+    tooltip.textContent = photoName;
+    tooltip.style.display = 'block';
+    tooltip.style.left = `${e.pageX + 10}px`;
+    tooltip.style.top = `${e.pageY + 10}px`;
+  });
+
+  img.addEventListener('mousemove', (e) => {
+    tooltip.style.left = `${e.pageX + 10}px`;
+    tooltip.style.top = `${e.pageY + 10}px`;
+  });
+
+  img.addEventListener('mouseout', () => {
+    tooltip.style.display = 'none';
+  });
+
+  // For Mobile (Touch Events)
+  img.addEventListener('touchstart', (e) => {
+    const photoName = img.getAttribute('data-name');
+    tooltip.textContent = photoName;
+    tooltip.style.display = 'block';
+    tooltip.style.left = `${e.touches[0].pageX + 10}px`;
+    tooltip.style.top = `${e.touches[0].pageY + 10}px`;
+  });
+
+  img.addEventListener('touchmove', (e) => {
+    tooltip.style.left = `${e.touches[0].pageX + 10}px`;
+    tooltip.style.top = `${e.touches[0].pageY + 10}px`;
+  });
+
+  img.addEventListener('touchend', () => {
+    tooltip.style.display = 'none';
+  });
+});
+</script>
+
+<!-- الأقسام -->
+<div class="space-y-16" i18next-orgval-1="
+          " i18next-orgval-3="
+          " i18next-orgval-5="
+
+          " i18next-orgval-7="
+          " i18next-orgval-9="
+          " i18next-orgval-11="
+        " localized="">
+<!-- قسم الألعاب -->
+<div i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+          " localized="">
+<h3 class="p-6 mb-8 text-2xl font-semibold text-center border-4 border-dashed rounded-lg border-light-accent text-light-text dark:text-dark-text dark:border-dark-accent" i18next-orgval-0="
+              الالعاب و برامج
+            " localized="">
+الالعاب و برامج
+</h3>
+<div class="grid items-center justify-center grid-cols-1 gap-6 lg:grid-cols-3" i18next-orgval-1="
+              " i18next-orgval-3="
+              " i18next-orgval-5="
+              " i18next-orgval-7="
+            " localized="">
+<a href="code1.html" target="_parent" class="relative overflow-hidden transition-transform rounded-lg shadow-lg group hover:scale-105 hover:rotate-2" i18next-orgval-1="
+                " i18next-orgval-3="
+                " i18next-orgval-5="
+              " localized="">
+<img src="soon.jpg" alt="cooming soon" class="object-cover w-full h-64" loading="lazy" alt-i18next-orgval="coming soon" localized="">
+<div class="absolute inset-0 flex items-center justify-center transition-opacity bg-black bg-opacity-50 opacity-0 group-hover:opacity-100" i18next-orgval-1="
+                  " i18next-orgval-3="
+                " localized="">
+<p class="text-lg font-bold text-white" i18next-orgval-0="coming soon" localized="">اشياء اخرى قريبا</p>
+</div>
+</a>
+<a href="https://mimo-code.itch.io/" target="_blank" class="relative overflow-hidden transition-transform rounded-lg shadow-lg group hover:scale-110 hover:rotate-1" i18next-orgval-1="
+                " i18next-orgval-3="
+                " i18next-orgval-5="
+              " localized="">
+<img src="Itch.io_.webp" alt="Itch.io Page" class="object-cover w-full h-72" loading="lazy" alt-i18next-orgval="Itch.io Page" localized="">
+<div class="absolute inset-0 flex flex-col items-center justify-center transition-opacity bg-black bg-opacity-50 opacity-0 gap-7 group-hover:opacity-100" i18next-orgval-1="
+                  " i18next-orgval-3="
+                  " i18next-orgval-5="
+                  " i18next-orgval-7="
+                " localized="">
+<h1 class="text-2xl font-bold text-white" i18next-orgval-0="Itch.io Page" localized="">صفحة اتش اي اوه</h1>
+<br localized="">
+<p class="text-lg font-bold text-gray-300" i18next-orgval-0="
+                    All my games in one place
+                  " localized="">
+العابي كلها في مكان واحد
+</p>
+</div>
+</a>
+<a href="https://mimo-code.itch.io/mimo-browser" target="_blank" class="relative overflow-hidden transition-transform rounded-lg shadow-lg group hover:scale-105 hover:-rotate-2" i18next-orgval-1="
+                " i18next-orgval-3="
+                " i18next-orgval-5="
+              " localized="">
+<img src="browser.png" alt="Mimo browser" class="object-cover w-full h-64" loading="lazy" alt-i18next-orgval="Mimo browser" localized="">
+<div class="absolute inset-0 flex items-center justify-center transition-opacity bg-black bg-opacity-50 opacity-0 group-hover:opacity-100" i18next-orgval-1="
+                  " i18next-orgval-3="
+                " localized="">
+<p class="text-lg font-bold text-white" i18next-orgval-0="Mimo browser" localized="">متصفح ميمو</p>
+</div>
+</a>
+</div>
+</div>
+
+</p>
+</div>
+</a>
+</div>
+</div>
+<div i18next-orgval-1="
+            " i18next-orgval-3="
+            " i18next-orgval-5="
+          " localized="">
+<h3 class="p-6 mb-8 text-2xl font-semibold text-center border-4 border-dashed rounded-lg border-light-accent dark:text-dark-text text-light-text dark:border-dark-accent" i18next-orgval-0="
+              دوراتي
+            " localized="">
+دوراتي
+</h3>
+<div class="grid grid-cols-1" i18next-orgval-1="
+              " i18next-orgval-3="
+            " localized="">
+<a href="https://www.udemy.com/course/create-a-full-2d-platformer-game-in-godot-4-in-arabic/?couponCode=SOPDEV7" target="_blank" class="relative overflow-hidden transition-transform rounded-lg shadow-lg group hover:scale-105 hover:rotate-2" aria-label="a link to my game Development ourse" i18next-orgval-1="
+                " i18next-orgval-3="
+                " i18next-orgval-5="
+              " localized="">
+<img src="tut.png" alt="My game development course" class="object-cover w-full h-80" loading="lazy" alt-i18next-orgval="My game development course" localized="">
+<div class="absolute inset-0 flex items-center justify-center transition-opacity bg-green-600 opacity-0 bg-opacity-30 dark:bg-blue-600 dark:bg-opacity-30 group-hover:opacity-100" i18next-orgval-1="
+                  " i18next-orgval-3="
+                " localized="">
+<p class="text-3xl font-bold text-white" i18next-orgval-0="
+                    ابدا تطوير الالعاب الان!
+                  " localized="">
+ابدا تطوير الالعاب الان!
+</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <footer class="py-8 mt-16 bg-light-accent dark:bg-dark-secondary" i18next-orgval-1="
+      " i18next-orgval-3="
+    " localized="">
+<div class="container px-6 mx-auto text-center" i18next-orgval-1="
+        " i18next-orgval-3="
+        " i18next-orgval-5="
+      " localized="">
+<h2 class="mb-4 text-2xl font-bold tracking-wide text-light-text dark:text-dark-text" i18next-orgval-0="
+          Great things coming soon
+        " localized="">
+اشياء رائعة ستائتي قريبا
+</h2>
+<p class="text-lg font-medium text-light-secondary dark:text-dark-bg" i18next-orgval-1="
+          Made by
+          " i18next-orgval-3="
+        " localized="">
+تم تطويرة بواسطة
+<span id="mimo" class="font-extrabold text-light-text dark:text-dark-text" i18next-orgval-0="Moumen" localized="">مؤمن</span>
+</p>
+</div>
+<script src="animation.js"></script>
+</footer>
+  <script defer="" src="./SOP Website_files/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9323af1adcb8e187&quot;,&quot;version&quot;:&quot;2025.4.0-1-g37f21b1&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1d846023b2d440bc83ce026b03a7392c&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}}}" crossorigin="anonymous"></script>
+
+
+</body></html>

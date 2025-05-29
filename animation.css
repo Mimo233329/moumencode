@@ -1,0 +1,216 @@
+header{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+header h4{
+    position: absolute;
+    left: 10%;
+    bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.dark-theme{
+    .intro{
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #161616;
+        transition: 1s;
+    }
+    .logo-header{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        width: 100%;
+        height: 80px;
+        background-color: #161616;
+        transition: translate(-50%, -50%);
+        color: #fff;
+    }
+    #mimo:hover{
+        color: #b3e5fc;
+    }
+    #sharta::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 3px;
+        background-color: #0277bd;
+        transition: 0.4s;
+    }
+    #hello {
+        position: relative;
+        top: 20px;
+        display: inline-block;
+        font-size: 5rem;
+        color: #adddf4;
+        font-family: 'Playwrite NG Modern', sans-serif;;
+        text-shadow:
+            0 1px 0 #0277bd,
+            0 2px 0 #0277bd,
+            0 3px 0 #0277bd,
+            0 4px 0 #0277bd,
+            0 5px 0 #0277bd,
+            0 6px 0 #0277bd,
+            0 7px 0 transparent,
+            0 8px 0 transparent,
+            0 9px 0 transparent,
+            0 10px 0 rgba(0, 0, 0, 0.5);
+        animation: bounce 0.4s ease infinite alternate;
+    }
+}
+
+.light-theme{
+    .intro{
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        transition: 1s;
+    }
+    .logo-header{
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        width: 100%;
+        height: 80px;
+        background-color: #fff;
+        transition: translate(-50%, -50%);
+        color: #161616;
+    }
+    #mimo:hover{
+        color: #66bb6a;
+    }
+    #sharta::after{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 3px;
+        background-color: #66bb6a;
+        transition: 0.4s;
+    }
+    #hello {
+        position: relative;
+        top: 20px;
+    
+        display: inline-block;
+        font-size: 5rem;
+        color: #66bb6a;
+        text-shadow:
+            0 1px 0 #1b5e20,
+            0 2px 0 #1b5e20,
+            0 3px 0 #1b5e20,
+            0 4px 0 #1b5e20,
+            0 5px 0 #1b5e20,
+            0 6px 0 #1b5e20,
+            0 7px 0 transparent,
+            0 8px 0 transparent,
+            0 9px 0 transparent,
+            0 10px 0 rgba(0, 0, 0, 0.5);
+        animation: bounce 0.4s ease infinite alternate;
+    }
+}
+
+
+.logo{
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+}
+
+.logo.active{
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.logo.fade {
+    bottom: 150px;
+    opacity: 0;
+    transition: all 0.5s ease-in-out; /* Corrected */
+}
+
+#sharta{
+    position: relative;
+    padding: 0 10px;
+}
+
+#sharta:hover::after{
+    width: 100%;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+#mimo{
+    transition: color 0.3s ease-in-out;
+}
+
+#h span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+#h span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+#h span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+#h span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+#im {
+    animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+    100% {
+        top: -20px;
+        text-shadow:
+            0 1px 0 #ccc,
+            0 2px 0 #ccc,
+            0 3px 0 #ccc,
+            0 4px 0 #ccc,
+            0 5px 0 #ccc,
+            0 6px 0 #ccc,
+            0 7px 0 #ccc,
+            0 8px 0 #ccc,
+            0 9px 0 #ccc,
+            0 60px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Define the keyframes */
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+    50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+/* Apply the animation to the specific node */
+#animated-node {
+    animation: jump 1s infinite; /* Animation name, duration, and repeat */
+    display: inline-block; /* Ensure the element is inline-block for transform */
+}
